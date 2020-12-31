@@ -85,15 +85,9 @@ scripts.forEach(script => {
     })
     .transform('babelify', {
       presets: [
-        [
-          '@babel/env', {
-            targets: {
-              browsers: ['last 2 versions', 'safari >= 7']
-            },
-            useBuiltIns: false
-          }
-        ]
-      ]
+          "@babel/preset-env",
+      ],
+      global: true
     })
     .transform(preprocessify, {
       includeExtensions: ['.js'],
