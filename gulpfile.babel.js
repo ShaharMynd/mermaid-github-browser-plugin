@@ -82,12 +82,15 @@ scripts.forEach(script => {
     browserify({
       entries: 'src/scripts/' + script,
       debug: !production,
+      plugin: [
+        [ require('esmify') ]
+      ]
     })
     .transform('babelify', {
       presets: [
           "@babel/preset-env",
       ],
-      global: true
+      // global: true
     })
     .transform(preprocessify, {
       includeExtensions: ['.js'],
